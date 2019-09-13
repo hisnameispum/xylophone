@@ -8,6 +8,17 @@ void playNote(int num) {
   player.play("note$num.wav");
 }
 
+Expanded buildWidget(int num, Color color) {
+  return Expanded(
+    child: FlatButton(
+      onPressed: () {
+        playNote(num);
+      },
+      color: color,
+    ),
+  );
+}
+
 class XylophoneApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -18,62 +29,13 @@ class XylophoneApp extends StatelessWidget {
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Expanded(
-              child: FlatButton(
-                onPressed: () {
-                  playNote(1);
-                },
-                color: Colors.red,
-              ),
-            ),
-            Expanded(
-              child: FlatButton(
-                onPressed: () {
-                  playNote(2);
-                },
-                color: Colors.orange,
-              ),
-            ),
-            Expanded(
-              child: FlatButton(
-                onPressed: () {
-                  playNote(3);
-                },
-                color: Colors.yellow,
-              ),
-            ),
-            Expanded(
-              child: FlatButton(
-                onPressed: () {
-                  playNote(4);
-                },
-                color: Colors.lightGreen,
-              ),
-            ),
-            Expanded(
-              child: FlatButton(
-                onPressed: () {
-                  playNote(5);
-                },
-                color: Colors.teal,
-              ),
-            ),
-            Expanded(
-              child: FlatButton(
-                onPressed: () {
-                  playNote(6);
-                },
-                color: Colors.blue,
-              ),
-            ),
-            Expanded(
-              child: FlatButton(
-                onPressed: () {
-                  playNote(7);
-                },
-                color: Colors.purple,
-              ),
-            ),
+            buildWidget(1, Colors.red),
+            buildWidget(2, Colors.orange),
+            buildWidget(3, Colors.yellow),
+            buildWidget(4, Colors.green),
+            buildWidget(5, Colors.teal),
+            buildWidget(6, Colors.blue),
+            buildWidget(7, Colors.purple),
           ],
         )),
       ),
